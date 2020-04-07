@@ -3,6 +3,7 @@ import infectionsByTime from './infectionsByTime';
 function est(severe, {
   reportedCases,
   timeToElapse,
+  totalHospitalBeds,
   periodType = 'days'
 }) {
   const currentlyInfected = severe ? reportedCases * 50 : reportedCases * 10;
@@ -12,9 +13,15 @@ function est(severe, {
     periodType
   );
 
+  const severeCasesByRequestedTime = Math.floor(infectionsByRequestedTime * 0.15);
+
+  const hospitalBedsByRequestedTime = totalHospitalBeds - severeCasesByRequestedTime;
+
   return {
     currentlyInfected,
-    infectionsByRequestedTime
+    hospitalBedsByRequestedTime,
+    infectionsByRequestedTime,
+    severeCasesByRequestedTime
   };
 }
 
