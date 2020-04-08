@@ -42,7 +42,7 @@ describe('covid19ImpactEstimator', () => {
     const current = (testData.reportedCases * 10)
       * (2 ** Math.floor(testData.timeToElapse / 3));
 
-    expect(impact.severeCasesByRequestedTime).toEqual(Math.floor(current * 0.15));
+    expect(impact.severeCasesByRequestedTime).toEqual(current * 0.15);
   });
 
   it('should return right values for severeImpact.severeCasesByRequestedTime field', () => {
@@ -50,14 +50,14 @@ describe('covid19ImpactEstimator', () => {
     const current = (testData.reportedCases * 50)
       * (2 ** Math.floor(testData.timeToElapse / 3));
 
-    expect(severeImpact.severeCasesByRequestedTime).toEqual(Math.floor(current * 0.15));
+    expect(severeImpact.severeCasesByRequestedTime).toEqual(current * 0.15);
   });
 
   it('should return right values for impact.hospitalBedsByRequestedTime field', () => {
     const { impact } = estimator(testData);
     const current = (testData.reportedCases * 10)
       * (2 ** Math.floor(testData.timeToElapse / 3));
-    const severeCasesByRequestedTime = Math.floor(current * 0.15);
+    const severeCasesByRequestedTime = current * 0.15;
 
     expect(impact.hospitalBedsByRequestedTime)
       .toEqual(testData.totalHospitalBeds - severeCasesByRequestedTime);
@@ -67,7 +67,7 @@ describe('covid19ImpactEstimator', () => {
     const { severeImpact } = estimator(testData);
     const current = (testData.reportedCases * 50)
       * (2 ** Math.floor(testData.timeToElapse / 3)); // infections by requested time
-    const severeCasesByRequestedTime = Math.floor(current * 0.15);
+    const severeCasesByRequestedTime = current * 0.15;
 
     expect(severeImpact.hospitalBedsByRequestedTime)
       .toEqual(testData.totalHospitalBeds - severeCasesByRequestedTime);
@@ -79,8 +79,8 @@ describe('covid19ImpactEstimator', () => {
     const { impact } = estimator(testData);
     const current = (testData.reportedCases * 10)
       * (2 ** Math.floor(testData.timeToElapse / 3));
-    const casesForICUByRequestedTime = Math.floor(current * 0.05);
-    const casesForVentilatorsByRequestedTime = Math.floor(current * 0.02);
+    const casesForICUByRequestedTime = current * 0.05;
+    const casesForVentilatorsByRequestedTime = current * 0.02;
 
     expect(impact.casesForICUByRequestedTime)
       .toEqual(casesForICUByRequestedTime);
@@ -92,8 +92,8 @@ describe('covid19ImpactEstimator', () => {
     const { severeImpact } = estimator(testData);
     const current = (testData.reportedCases * 50)
       * (2 ** Math.floor(testData.timeToElapse / 3));
-    const casesForICUByRequestedTime = Math.floor(current * 0.05);
-    const casesForVentilatorsByRequestedTime = Math.floor(current * 0.02);
+    const casesForICUByRequestedTime = current * 0.05;
+    const casesForVentilatorsByRequestedTime = current * 0.02;
 
     expect(severeImpact.casesForICUByRequestedTime)
       .toEqual(casesForICUByRequestedTime);
