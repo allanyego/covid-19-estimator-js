@@ -9,7 +9,7 @@ function infectionsByTime(duration, currentEstimate, periodType = 'days') {
       factor = Math.floor((duration * 30) / 3);
       break;
     default:
-      factor = duration / 3;
+      factor = Math.floor(duration / 3);
       break;
   }
 
