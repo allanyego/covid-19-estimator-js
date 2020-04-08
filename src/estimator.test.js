@@ -60,7 +60,7 @@ describe('covid19ImpactEstimator', () => {
     const severeCasesByRequestedTime = current * 0.15;
 
     expect(impact.hospitalBedsByRequestedTime)
-      .toEqual(testData.totalHospitalBeds - severeCasesByRequestedTime);
+      .toEqual(testData.totalHospitalBeds * 0.35 - severeCasesByRequestedTime);
   });
 
   it('should return right values for severeImpact.hospitalBedsByRequestedTime field', () => {
@@ -70,7 +70,7 @@ describe('covid19ImpactEstimator', () => {
     const severeCasesByRequestedTime = current * 0.15;
 
     expect(severeImpact.hospitalBedsByRequestedTime)
-      .toEqual(testData.totalHospitalBeds - severeCasesByRequestedTime);
+      .toEqual(testData.totalHospitalBeds * 0.35 - severeCasesByRequestedTime);
   });
 
   it(`should return right values for 

@@ -8,7 +8,7 @@ function est(severe, {
   periodType
 }) {
   const currentlyInfected = severe ? reportedCases * 50 : reportedCases * 10;
-  const infectionsByRequestedTime = infectionsByTime(
+  const { infectionsByRequestedTime, days } = infectionsByTime(
     timeToElapse,
     currentlyInfected,
     periodType
@@ -24,7 +24,7 @@ function est(severe, {
 
   const { avgDailyIncomePopulation, avgDailyIncomeInUSD } = region;
   const dollarsInFlight = infectionsByRequestedTime
-    * avgDailyIncomePopulation * avgDailyIncomeInUSD * timeToElapse;
+    * avgDailyIncomePopulation * avgDailyIncomeInUSD * days;
 
   return {
     casesForICUByRequestedTime,
