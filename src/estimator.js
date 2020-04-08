@@ -5,7 +5,7 @@ function est(severe, {
   region,
   timeToElapse,
   totalHospitalBeds,
-  periodType = 'days'
+  periodType
 }) {
   const currentlyInfected = severe ? reportedCases * 50 : reportedCases * 10;
   const infectionsByRequestedTime = infectionsByTime(
