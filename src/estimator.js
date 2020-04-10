@@ -14,9 +14,9 @@ function est(severe, {
     periodType
   );
 
-  const severeCasesByRequestedTime = Math.floor(infectionsByRequestedTime * 0.15);
+  const severeCasesByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.15);
 
-  const hospitalBedsByRequestedTime = Math.floor((totalHospitalBeds
+  const hospitalBedsByRequestedTime = Math.trunc((totalHospitalBeds
     * 0.35) - severeCasesByRequestedTime);
 
   const casesForICUByRequestedTime = Math.floor(infectionsByRequestedTime * 0.05);
