@@ -17,7 +17,7 @@ function infectionsByTime(duration, currentEstimate, periodType = 'days') {
   }
 
   return {
-    infectionsByRequestedTime: currentEstimate * (2 ** factor),
+    infectionsByRequestedTime: Math.floor(currentEstimate * (2 ** factor)),
     days: days || duration
   };
 }

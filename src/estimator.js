@@ -14,7 +14,7 @@ function est(severe, {
     periodType
   );
 
-  const severeCasesByRequestedTime = infectionsByRequestedTime * 0.15;
+  const severeCasesByRequestedTime = Math.floor(infectionsByRequestedTime * 0.15);
 
   const hospitalBedsByRequestedTime = Math.floor(totalHospitalBeds
     * 0.35 - severeCasesByRequestedTime);
@@ -34,7 +34,7 @@ function est(severe, {
     dollarsInFlight,
     hospitalBedsByRequestedTime,
     infectionsByRequestedTime,
-    severeCasesByRequestedTime: Math.floor(severeCasesByRequestedTime)
+    severeCasesByRequestedTime
   };
 }
 
