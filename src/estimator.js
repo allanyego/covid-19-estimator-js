@@ -2,13 +2,13 @@ import infectionsByTime from './infectionsByTime';
 
 function est(severe, {
   reportedCases,
-  region,
+  // region,
   timeToElapse,
   totalHospitalBeds,
   periodType
 }) {
   const currentlyInfected = severe ? reportedCases * 50 : reportedCases * 10;
-  const { infectionsByRequestedTime, days } = infectionsByTime(
+  const { infectionsByRequestedTime/* , days */ } = infectionsByTime(
     timeToElapse,
     currentlyInfected,
     periodType
