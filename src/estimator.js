@@ -16,8 +16,8 @@ function est(severe, {
 
   const severeCasesByRequestedTime = Math.floor(infectionsByRequestedTime * 0.15);
 
-  const hospitalBedsByRequestedTime = (totalHospitalBeds
-    * 0.35) - severeCasesByRequestedTime;
+  const hospitalBedsByRequestedTime = Math.floor((totalHospitalBeds
+    * 0.35) - severeCasesByRequestedTime);
 
   const casesForICUByRequestedTime = Math.floor(infectionsByRequestedTime * 0.05);
 
