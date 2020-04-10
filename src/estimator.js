@@ -2,13 +2,13 @@ import infectionsByTime from './infectionsByTime';
 
 function est(severe, {
   reportedCases,
-  // region,
+  region,
   timeToElapse,
   totalHospitalBeds,
   periodType
 }) {
   const currentlyInfected = severe ? reportedCases * 50 : reportedCases * 10;
-  const { infectionsByRequestedTime/* , days */ } = infectionsByTime(
+  const { infectionsByRequestedTime, days } = infectionsByTime(
     timeToElapse,
     currentlyInfected,
     periodType
@@ -23,10 +23,10 @@ function est(severe, {
 
   const casesForVentilatorsByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.02);
 
-  // const { avgDailyIncomePopulation, avgDailyIncomeInUSD } = region;
-  const dollarsInFlight = 100.00;
-  // (infectionsByRequestedTime
-  //   * avgDailyIncomePopulation * avgDailyIncomeInUSD * days).toFixed(2);
+  const { avgDailyIncomePopulation, avgDailyIncomeInUSD } = region;
+  let dollarsInFlight = (infectionsByRequestedTime
+    * avgDailyIncomePopulation * avgDailyIncomeInUSD * days);
+  dollarsInFlight = dollarsInFlight.toFixed(2);
 
   return {
     casesForICUByRequestedTime,
