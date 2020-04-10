@@ -24,8 +24,8 @@ function est(severe, {
   const casesForVentilatorsByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.02);
 
   const { avgDailyIncomePopulation, avgDailyIncomeInUSD } = region;
-  let dollarsInFlight = (infectionsByRequestedTime
-    * avgDailyIncomePopulation * avgDailyIncomeInUSD * days);
+  let dollarsInFlight = ((infectionsByRequestedTime
+    * avgDailyIncomePopulation * avgDailyIncomeInUSD) / days);
   dollarsInFlight = Number(dollarsInFlight.toFixed(2));
 
   return {
