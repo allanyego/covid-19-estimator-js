@@ -19,12 +19,12 @@ function est(severe, {
   const hospitalBedsByRequestedTime = Math.trunc((totalHospitalBeds
     * 0.35) - severeCasesByRequestedTime);
 
-  const casesForICUByRequestedTime = Math.floor(infectionsByRequestedTime * 0.05);
+  const casesForICUByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.05);
 
-  const casesForVentilatorsByRequestedTime = Math.floor(infectionsByRequestedTime * 0.02);
+  const casesForVentilatorsByRequestedTime = Math.trunc(infectionsByRequestedTime * 0.02);
 
   const { avgDailyIncomePopulation, avgDailyIncomeInUSD } = region;
-  const dollarsInFlight = Math.floor(infectionsByRequestedTime
+  const dollarsInFlight = Math.trunc(infectionsByRequestedTime
     * avgDailyIncomePopulation * avgDailyIncomeInUSD * days);
 
   return {
