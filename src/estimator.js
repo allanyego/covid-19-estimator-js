@@ -26,7 +26,7 @@ function est(severe, {
   const { avgDailyIncomePopulation, avgDailyIncomeInUSD } = region;
   let dollarsInFlight = (infectionsByRequestedTime
     * avgDailyIncomePopulation * avgDailyIncomeInUSD * days);
-  dollarsInFlight = dollarsInFlight.toFixed(2);
+  dollarsInFlight = Number(dollarsInFlight.toFixed(2));
 
   return {
     casesForICUByRequestedTime,
