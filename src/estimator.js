@@ -14,17 +14,18 @@ function est(severe, {
     periodType
   );
 
-  const severeCasesByRequestedTime = infectionsByRequestedTime * 0.15;
+  const severeCasesByRequestedTime = Math.floor(infectionsByRequestedTime * 0.15);
 
-  const hospitalBedsByRequestedTime = Math.floor(totalHospitalBeds * 0.35 - severeCasesByRequestedTime);
+  const hospitalBedsByRequestedTime = Math.floor(totalHospitalBeds
+    * 0.35 - severeCasesByRequestedTime);
 
-  const casesForICUByRequestedTime = infectionsByRequestedTime * 0.05;
+  const casesForICUByRequestedTime = Math.floor(infectionsByRequestedTime * 0.05);
 
-  const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * 0.02;
+  const casesForVentilatorsByRequestedTime = Math.floor(infectionsByRequestedTime * 0.02);
 
   const { avgDailyIncomePopulation, avgDailyIncomeInUSD } = region;
-  const dollarsInFlight = infectionsByRequestedTime
-    * avgDailyIncomePopulation * avgDailyIncomeInUSD * days;
+  const dollarsInFlight = Math.floor(infectionsByRequestedTime
+    * avgDailyIncomePopulation * avgDailyIncomeInUSD * days);
 
   return {
     casesForICUByRequestedTime,
