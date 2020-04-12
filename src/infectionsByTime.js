@@ -1,6 +1,7 @@
 function infectionsByTime(duration, currentEstimate, periodType = 'days') {
   let factor = null;
   let days = null;
+  console.log('commit prompt');
 
   switch (periodType) {
     case 'weeks':
